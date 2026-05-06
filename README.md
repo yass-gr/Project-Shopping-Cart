@@ -1,18 +1,49 @@
-# React + Vite
+# Project Shopping Cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A learning project focused on **React Router** and **custom hooks**, built with React + Vite. This project implements a minimal shopping cart application to explore nested routing, outlet context, and data-fetching hooks.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** — UI library with React Compiler enabled
+- **React Router DOM v7** — Client-side routing with `createBrowserRouter`, nested routes, `<Outlet>`, and `useOutletContext`
+- **Vite** — Fast build tool and dev server
+- **Tailwind CSS v4** — Utility-first styling
+- **Lucide React** — Icon library
+- **Framer Motion** — Animation library
 
-## React Compiler
+## Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- Nested routes with a layout shell (`App.jsx`) and child pages (`Home`, `Products`)
+- Route outlet context for sharing `cartItems` state across components without prop drilling
+- Custom hook (`useProductData`) that encapsulates async data fetching with loading and error states
+- Product listing fetched from the [Fake Store API](https://fakestoreapi.com/)
+- Add-to-cart with quantity selection
+- Slide-over cart panel with item removal
 
-Note: This will impact Vite dev & build performances.
+## Project Structure
 
-## Expanding the ESLint configuration
+```
+src/
+├── main.jsx                  # Router setup with createBrowserRouter
+├── App.jsx                   # Layout shell — renders Navbar + Outlet with context
+├── components/
+│   ├── home.jsx              # Landing page with hero and CTA
+│   ├── products.jsx          # Product grid using useProductData + useOutletContext
+│   ├── Navbar.jsx            # Navigation bar with cart button and item count
+│   └── Cart.jsx              # Full-screen cart overlay with remove functionality
+├── hooks/
+│   └── useProductData.jsx    # Custom hook: fetches products with loading/error states
+└── index.css                 # Global styles + Tailwind setup
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Learning Objectives
+
+This project demonstrates the following React concepts:
+
+| Concept                                   | Where                      |
+| ----------------------------------------- | -------------------------- |
+| `createBrowserRouter` & `RouterProvider`  | `main.jsx`                 |
+| Nested routes & `<Outlet>`                | `App.jsx`                  |
+| `useOutletContext` for shared state       | `products.jsx`             |
+| Custom hook with `useEffect` + `useState` | `hooks/useProductData.jsx` |
+| Lifted state pattern                      | `App.jsx` → Navbar + Cart  |
