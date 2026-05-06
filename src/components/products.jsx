@@ -46,7 +46,7 @@ const Products = () => {
   return (
     <>
       <h1 className="text-center text-3xl font-bold my-5">Products</h1>
-      <section className=" mx-5 grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+      <section className="lg:w-3/5 lg:mx-auto mx-5 grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
         {data.map((p, i) => {
           return (
             <article

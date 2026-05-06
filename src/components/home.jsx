@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <section className="mx-10">
+    <section className="lg:w-3/5 lg:mx-auto mx-10">
       <h1 className="mt-40 text-7xl font-extrabold text-taupe-900">
         Shop what <br /> you <span className="text-teal-600">love.</span>
       </h1>
